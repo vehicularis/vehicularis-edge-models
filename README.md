@@ -1,7 +1,9 @@
 # Vehicularis edge models
 
-Open models that Vehicularis apps download on first use and run on the device. None of them
-are ours: each is an unmodified copy of a published model, redistributed under its own licence.
+Open models that Vehicularis apps download on first use and run on the device. The ones released
+here are not ours: each is an unmodified copy of a published model, redistributed under its own
+licence. Models we train ourselves are released from their own repositories and listed under
+[Our own models](#our-own-models).
 
 Each set is a release. A release's model files never change, so apps pinned to it keep working
 (and they check every file's SHA-256 anyway). A new or updated model goes in a new release.
@@ -19,3 +21,11 @@ Each set is a release. A release's model files never change, so apps pinned to i
 | `ggml-silero-v6.2.0.bin` | [Silero VAD](https://github.com/snakers4/silero-vad) | [whisper.cpp](https://github.com/ggml-org/whisper.cpp) | [Hugging Face](https://huggingface.co/ggml-org/whisper-vad/tree/9ffd54a1e1ee413ddf265af9913beaf518d1639b) | MIT |
 
 The full notices are in [VOICE-LICENSES.txt](VOICE-LICENSES.txt), which is also attached to the release.
+
+## Our own models
+
+| Model | What it is | Release | Licence |
+| --- | --- | --- | --- |
+| TabTasker Workflow AI 0.6B | Qwen3-0.6B fine-tuned to write TabTasker workflow graphs, ONNX 4-bit for Transformers.js | [`v1` in tabtasker-workflow-0.6b](https://github.com/vehicularis/tabtasker-workflow-0.6b/releases/tag/v1) | Apache-2.0 |
+
+`model_q4.onnx` in that release: 996522547 bytes, SHA-256 `bac4a8c7802d31a93aa18ea8a839d7a71a3ba95f3c40d8675f279baee689b614`.
