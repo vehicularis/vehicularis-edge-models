@@ -22,6 +22,22 @@ Each set is a release. A release's model files never change, so apps pinned to i
 
 The full notices are in [VOICE-LICENSES.txt](VOICE-LICENSES.txt), which is also attached to the release.
 
+## Read aloud (`tts-v1`)
+
+| File | What it is | Bytes | SHA-256 |
+| --- | --- | --- | --- |
+| `config.json` | Phonon 31M configuration | 4634 | `b5d0f88353638370d94035b7d73d7d6577c0554d78f8d7ecfd40490aae39ae85` |
+| `tokenizer.json` | Phonon 31M tokenizer | 277967 | `691a00068fa7b989f2f3e5ae5daa2d1a5bb319f2d5360deafcfb19a8bb6e7936` |
+| `model.q8.gguf` | Phonon 31M weights, 8-bit | 64512352 | `a7d9aad2cd6dc66473f24a08bc6d2939030ef4d751ef82349361fbef3272dbae` |
+| `easton.safetensors` | The Easton voice (American English, male) | 256136 | `45c582673cb20edb04ddcca2b5a8865ddfb0a82599efadb269021e87d20fbdd4` |
+
+| Files | Model by | Source | Licence |
+| --- | --- | --- | --- |
+| `config.json`, `tokenizer.json`, `model.q8.gguf` | [Gradium Phonon](https://huggingface.co/gradium/phonon-31m-en), built on Kyutai's Pocket TTS and Mimi | [Hugging Face](https://huggingface.co/gradium/phonon-31m-en/tree/92741c5b07d085ff840e26fea8ce43110b87852f) | Apache-2.0 |
+| `easton.safetensors` (`voices/LMDIYE0Oa377Qh6Z.safetensors` upstream) | [Gradium Phonon voices](https://huggingface.co/gradium/phonon-voices) | [Hugging Face](https://huggingface.co/gradium/phonon-voices/tree/0ee17205f254b5abc43b266c8a0f215565c352f7) | Apache-2.0 |
+
+All unmodified apart from the voice file's name. The notices are in [TTS-LICENSES.txt](TTS-LICENSES.txt), which is also attached to the release.
+
 ## Our own models
 
 | Model | What it is | Release | Licence |
