@@ -1,12 +1,32 @@
 # Vehicularis edge models
 
 Open models that Vehicularis apps download on first use and run on the device. The ones released
-here are not ours: each is an unmodified copy of a published model, redistributed under its own
-licence. Models we train ourselves are released from their own repositories and listed under
+here are not ours: each is a published model, redistributed under its own licence and unmodified
+unless its section says what we changed. Models we train ourselves are released from their own repositories and listed under
 [Our own models](#our-own-models).
 
 Each set is a release. A release's model files never change, so apps pinned to it keep working
 (and they check every file's SHA-256 anyway). A new or updated model goes in a new release.
+
+## Voice (`voice-v2`)
+
+Whisper large-v3 Turbo fine-tuned to stay accurate when it reads only the audio that was spoken
+instead of a padded 30 s window, so short commands transcribe several times faster. Speech
+detection is still `ggml-silero-v6.2.0.bin` from `voice-v1`.
+
+| File | What it is | Bytes | SHA-256 |
+| --- | --- | --- | --- |
+| `ggml-acft-large-v3-turbo-q8_0.bin` | Whisper large-v3 Turbo with audio context fine-tuning, 8-bit, for whisper.cpp | 874188075 | `e8d17bf90d61da165773e8a4bb7de3462982eceb9a1ed696c0d6fe7c9136624a` |
+
+| File | Model by | Converted to ggml by | Source | Licence |
+| --- | --- | --- | --- | --- |
+| `ggml-acft-large-v3-turbo-q8_0.bin` | [Mahmoud Ashraf](https://huggingface.co/MahmoudAshraf/acft-whisper-large-v3-turbo), fine-tuned from [OpenAI Whisper](https://github.com/openai/whisper) with [FUTO's method](https://github.com/futo-org/whisper-acft) | Vehicularis, with ggml's 8-bit quantizer | [Hugging Face](https://huggingface.co/MahmoudAshraf/acft-whisper-large-v3-turbo/tree/6f95623c4821f6fec36f280ebc7946cc6730854c) (`model.safetensors`, SHA-256 `5660919b2af8ad83974c24c7efcd229b757ddfcba0a5786e267c000fb6e51e59`) | Apache-2.0 |
+
+Converted, not retrained: every tensor has the same ggml type as in `voice-v1`'s
+`ggml-large-v3-turbo-q8_0.bin`, whose mel filters and vocabulary it reuses. Set whisper.cpp's
+`audio_ctx` to the audio's length to get the speed (TabTasker uses `ceil(samples / 320) + 128`).
+
+The full notices are in [VOICE-LICENSES.txt](VOICE-LICENSES.txt), which is also attached to the release.
 
 ## Voice (`voice-v1`)
 
